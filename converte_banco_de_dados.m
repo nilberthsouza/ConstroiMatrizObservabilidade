@@ -17,16 +17,17 @@ for k = 1:size(linhas,1)
 end
 
 %% Adiciona uma coluna de zeros no início, tornando a matriz não quadrada
-Obs = [zeros(Num_Barras,1), Obs]; % comente essa parte,se seu codigo não precisa disso
+Obs = [zeros(Num_Barras,1), Obs];  % comente esta linha se seu código não precisa disso
 
-% Exportar a matriz Obs de forma crua para o arquivo 'casoieee33P.m'
-nome_arquivo = 'casoieee69P.m';
-fid = fopen(nome_arquivo, 'w'); % Abre o arquivo para escrita
+%% Gera o nome do arquivo de saída automaticamente
+nome_arquivo_saida = [caso 'P.m'];
+
+% Exporta a matriz Obs para o novo arquivo
+fid = fopen(nome_arquivo_saida, 'w');  % Abre o arquivo para escrita
 
 for i = 1:size(Obs,1)
-    fprintf(fid, '%g ', Obs(i,:)); % Escreve a linha com valores separados por espaço
-    fprintf(fid, '\n');            % Pula para a próxima linha
+    fprintf(fid, '%g ', Obs(i,:));  % Escreve a linha com valores separados por espaço
+    fprintf(fid, '\n');             % Pula para a próxima linha
 end
 
-fclose(fid); % Fecha o arquivo
-
+fclose(fid);  % Fecha o arquivo
